@@ -1,0 +1,22 @@
+---
+title: "GitHappy"
+author: "Zac HIrschey"
+date: "7/18/2024"
+---
+
+# Initial Setup 
+
+When it comes to setting up git and being able to use github, there's a few things you have to have to be bale to use them together. The first thing you need is Git installed. Luckily, we use a Mac so its already pre installed on our computers. The next thing you're going to need is a Github account. To do this you can go to this link [Join github](https://github.com/).
+
+Now that you have both of those things done, its time to do the initial setup, that way git and github can talk to each other so you can commit, push and pull your work. We will need to have access to a terminal or what some call a shell for the next part. Rstudio has one that you can use, but ill be using the iTerm one that's already installed on your Mac.
+
+The first thing we want to do is create a username that way git knows who's doing what. We can that using the command in the shell.
+
+```         
+git config --global user.name "Jane Doe"
+```
+
+Then the next step is to give it an email
+
+```{git config --global user.email "jane@example.com"}
+```
