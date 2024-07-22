@@ -189,4 +189,4 @@ Now that your buddy made a repository with the project you want collaborate on, 
 
     -   Your buddy will review the pull request and decide whether to merge it into the main repository.
 
-And that’s it! You've successfully collaborated on a GitHub.
+And that’s it! You've successfully collaborated on a GitHub. a
