@@ -1,22 +1,192 @@
----
-title: "GitHappy"
-author: "Zac HIrschey"
-date: "7/18/2024"
----
+# GitHappy
 
-# Initial Setup 
+**Author:** Zac Hirschey\
+**Date:** 7/18/2024
 
-When it comes to setting up git and being able to use github, there's a few things you have to have to be bale to use them together. The first thing you need is Git installed. Luckily, we use a Mac so its already pre installed on our computers. The next thing you're going to need is a Github account. To do this you can go to this link [Join github](https://github.com/).
+## Initial Setup
 
-Now that you have both of those things done, its time to do the initial setup, that way git and github can talk to each other so you can commit, push and pull your work. We will need to have access to a terminal or what some call a shell for the next part. Rstudio has one that you can use, but ill be using the iTerm one that's already installed on your Mac.
+To set up Git and GitHub, there are a few prerequisites you need. Firstly, ensure Git is installed. Fortunately, on a Mac, Git comes pre-installed. Secondly, you need a GitHub account, which you can create by visiting [GitHub](https://github.com).
 
-The first thing we want to do is create a username that way git knows who's doing what. We can that using the command in the shell.
+### Configuring Git
 
-```         
-git config --global user.name "Jane Doe"
+1.  Open a terminal. You can use iTerm, which is pre-installed on your Mac, or the terminal in RStudio.
+
+2.  Set your Git username:
+
+    ``` bash
+    git config --global user.name "Jane Doe"
+    ```
+
+3.  Set your Git email:
+
+    ``` bash
+    git config --global user.email "jane@example.com"
+    ```
+
+4.  Verify your settings:
+
+    ``` bash
+    git config --global --list
+    ```
+
+Alternatively, you can configure Git in R with one step:
+
+``` r
+library(usethis)
+use_git_config(user.name = "Jane Doe", user.email = "jane@example.org")
 ```
 
-Then the next step is to give it an email
+## Connecting Git to GitHub
 
-```{git config --global user.email "jane@example.com"}
+### Obtaining a Personal Access Token (PAT)
+
+A PAT is required for Git to verify your identity with GitHub. Generate a PAT by visiting [GitHub Tokens](https://github.com/settings/tokens) and clicking "Generate token". In R, you can do this with:
+
+``` r
+usethis::create_github_token()
 ```
+
+Store your PAT securely:
+
+``` r
+gitcreds::gitcreds_set()
+```
+
+Check that it’s stored properly:
+
+``` r
+gitcreds::gitcreds_get()
+```
+
+### Setting the PAT in R
+
+Link your GitHub account by running:
+
+``` r
+credentials::set_github_pat()
+```
+
+Now, your accounts are linked.
+
+## Creating and Linking a Repository
+
+1.  On GitHub, click the "New" button on the homepage to create a new repository. Name it appropriately, choose Public or Private, check "Add a README file", and click "Create repository".
+
+2.  To link this repository to a project in R, copy the HTTPS link from the repository page by clicking the green "Code" button.
+
+3.  In RStudio, create a new project:
+
+    -   Click "File" \> "New Project".
+    -   Choose either "New Directory" \> "New Project" OR "Version Control" \> "Git".
+    -   If choosing "New Directory", name your project, specify the location to save it to, and check "Create a git repository". Click "Create Project".
+    -   If choosing "Version Control", paste the repository URL, name your project, and click "Create Project".
+
+Now, your repository is linked, and you can start committing, pushing, and pulling your work.
+
+# Committing, Pushing and Pulling
+
+### Committing Changes
+
+Git is a version control system that allows us to save our work and access each version saved. You do this by making a commit. If you've done all the previous steps correctly, you should have a Git tab in the Workplace Browser (same area as your Environment and History).
+
+1.  Check the "staged" box for the file with changes you want to commit.
+
+2.  Click the commit box above it.
+
+3.  Enter a short, descriptive commit message and click the commit box again. You've made your first commit!
+
+Use commits whenever you make significant changes that might impact your work. This way, you can fall back to a previous version if something goes wrong.
+
+### Pushing Changes
+
+After making commits, you need to upload your work to GitHub:
+
+1.  Click the green arrow that says "push".
+
+Voila! Your work should successfully be sent to your repository on GitHub.
+
+### Pulling Changes
+
+Pulling changes is essential when working collaboratively or when changes are made directly on GitHub. The reason you might want to pull these changes to your local machine to stay updated on what you're working on. To make a pull, simply:
+
+1.  Go to GitHub and select the changes you want to pull.
+
+2.  Return to R and click the blue "Pull" button.
+
+Easy as that! You should then see the changes that have been made.
+
+# Making Pull Requests
+
+Now that your buddy made a repository with the project you want collaborate on, but you don't know where to start? Don't worry, i got you.
+
+**Find the Repository**:
+
+-   Go to GitHub and locate the repository that your buddy has created and uploaded the project to.
+
+1.  **Fork the Repository**:
+
+    -   In the repository, click the "Fork" button at the top right corner of the page.
+
+    -   Select "Create new fork". This will create a copy of the repository under your own GitHub account.
+
+2.  **Clone the Repository**:
+
+    -   Once the fork is created, you need to clone it to your local machine. Click the green "Code" button in your forked repository.
+
+    -   Copy the URL provided.
+
+3.  **Open RStudio**:
+
+    -   Open RStudio on your computer.
+
+4.  **Create a New Project**:
+
+    -   In RStudio, go to the top right corner and click on "Project: (None)" or the current project name, then select "New Project".
+
+    -   Select "Version Control", then "Git".
+
+5.  **Clone Using Git**:
+
+    -   Paste the URL you copied from GitHub into the "Repository URL" field.
+
+    -   Choose a local directory to store the repository and click "Create Project".
+
+6.  **Create a Branch**:
+
+    -   Create a new branch for your changes by selecting the branch tab
+
+    -   name is something descriptive with a name that describes the changes you plan to make.
+
+7.  **Make Changes**:
+
+    -   Make the necessary changes to your files in RStudio.
+
+8.  **Commit Your Changes**:
+
+    -   In RStudio, go to the "Git" tab.
+
+    -   Check the boxes next to the files you want to commit.
+
+    -   Click the "Commit" button.
+
+    -   Enter a meaningful commit message describing the changes you made and click "Commit".
+
+9.  **Push Your Branch to GitHub**:
+
+    -   In the "Git" tab in RStudio, click the "Push" button to push your changes to GitHub.
+
+10. **Create a Pull Request**:
+
+    -   Go to your forked repository on GitHub.
+
+    -   You should see a prompt to create a pull request for your recently pushed branch. Click "Compare & pull request".
+
+    -   Add a title and description for your pull request, explaining what changes you made and why.
+
+    -   Click "Create pull request".
+
+11. **Review and Merge**:
+
+    -   Your buddy will review the pull request and decide whether to merge it into the main repository.
+
+And that’s it! You've successfully collaborated on a GitHub.
