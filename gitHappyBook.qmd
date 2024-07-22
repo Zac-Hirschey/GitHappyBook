@@ -1,7 +1,7 @@
 # GitHappy
 
-**Author:** Zac Hirschey\
-**Date:** 7/18/2024
+Author: Zac Hirschey\
+Date: 7/18/2024
 
 ## Initial Setup
 
@@ -119,49 +119,49 @@ Easy as that! You should then see the changes that have been made.
 
 Now that your buddy made a repository with the project you want collaborate on, but you don't know where to start? Don't worry, i got you.
 
-**Find the Repository**:
+Find the Repository:
 
 -   Go to GitHub and locate the repository that your buddy has created and uploaded the project to.
 
-1.  **Fork the Repository**:
+1.  Fork the Repository:
 
     -   In the repository, click the "Fork" button at the top right corner of the page.
 
     -   Select "Create new fork". This will create a copy of the repository under your own GitHub account.
 
-2.  **Clone the Repository**:
+2.  Clone the Repository:
 
     -   Once the fork is created, you need to clone it to your local machine. Click the green "Code" button in your forked repository.
 
     -   Copy the URL provided.
 
-3.  **Open RStudio**:
+3.  Open RStudio:
 
     -   Open RStudio on your computer.
 
-4.  **Create a New Project**:
+4.  Create a New Project:
 
     -   In RStudio, go to the top right corner and click on "Project: (None)" or the current project name, then select "New Project".
 
     -   Select "Version Control", then "Git".
 
-5.  **Clone Using Git**:
+5.  Clone Using Git:
 
     -   Paste the URL you copied from GitHub into the "Repository URL" field.
 
     -   Choose a local directory to store the repository and click "Create Project".
 
-6.  **Create a Branch**:
+6.  Create a Branch:
 
     -   Create a new branch for your changes by selecting the branch tab
 
     -   name is something descriptive with a name that describes the changes you plan to make.
 
-7.  **Make Changes**:
+7.  Make Changes:
 
     -   Make the necessary changes to your files in RStudio.
 
-8.  **Commit Your Changes**:
+8.  Commit Your Changes:
 
     -   In RStudio, go to the "Git" tab.
 
@@ -171,11 +171,11 @@ Now that your buddy made a repository with the project you want collaborate on, 
 
     -   Enter a meaningful commit message describing the changes you made and click "Commit".
 
-9.  **Push Your Branch to GitHub**:
+9.  Push Your Branch to GitHub:
 
     -   In the "Git" tab in RStudio, click the "Push" button to push your changes to GitHub.
 
-10. **Create a Pull Request**:
+10. Create a Pull Request:
 
     -   Go to your forked repository on GitHub.
 
@@ -185,8 +185,66 @@ Now that your buddy made a repository with the project you want collaborate on, 
 
     -   Click "Create pull request".
 
-11. **Review and Merge**:
+11. Review and Merge:
 
     -   Your buddy will review the pull request and decide whether to merge it into the main repository.
 
-And that’s it! You've successfully collaborated on a GitHub. a
+And that’s it! You've successfully collaborated on a GitHub.
+
+# How to make a repository for an Existing Project
+
+### Step-by-Step Guide to Link an RStudio Project to Git and GitHub
+
+#### Step 1: Enable Version Control in RStudio
+
+1.  Open your project in RStudio.
+
+2.  Go to the "Tools" menu.
+
+3.  Select "Version Control", then "Project Setup...".
+
+4.  Choose "Git" as your version control system.
+
+#### Step 2: Create a GitHub Repository
+
+1.  Go to GitHub
+
+2.  Click the "+" icon in the top-right corner and select "New repository".
+
+3.  Name your repository to match your project name in RStudio.
+
+4.  Set any additional options you prefer (e.g., description, public/private).
+
+5.  Click "Create repository".
+
+6.  After the repository is created, GitHub will provide you with instructions and code snippets for adding an existing project.
+
+#### Step 3: Link Your Existing Project to the GitHub Repository
+
+1.  Copy the code provided by GitHub for an existing project
+
+2.  In RStudio, open a new terminal:
+
+    -   Go to "Tools" \> "Terminal" \> "New Terminal".
+
+3.  Paste the copied code into the terminal and press Enter. This will add the GitHub repository as the remote and push your local changes to GitHub.
+
+#### Step 4: Test the Connection
+
+1.  Make a change to any file in your project.
+
+2.  Commit the change:
+
+    -   Go to the "Git" tab in RStudio.
+
+    -   Stage the changed file by checking the box next to it.
+
+    -   Write a commit message.
+
+    -   Click "Commit".
+
+3.  Push the commit to GitHub:
+
+    -   Click the "Push" button in the "Git" tab.
+
+You should now be able to see your files and commits in your GitHub repository. From this point on, you can manage your project with Git and GitHub directly from RStudio.
